@@ -1,46 +1,71 @@
-# Getting Started with Create React App
+# <p align="center">Letmeask ☝</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+    <img src="https://img.shields.io/badge/Code-React-informational?style=flat-square&logo=react&color=61DAFB" alt="React" />
+    <img src="https://img.shields.io/badge/Tools-Docker-informational?style=flat-square&logo=docker&color=2496ED" alt="Docker" />
+</p>
 
-## Available Scripts
+## 💬 About
 
-In the project directory, you can run:
+This project was developed following NLW's Together [React.js](https://nextlevelweek.com/episodios/react/aula-1/edicao/6) trail.
 
-### `yarn start`
+## :computer: Technologies
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [React.js](https://reactjs.org/)
+- [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## :scroll: Requirements
 
-### `yarn test`
+- [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## :cd: Installation
 
-### `yarn build`
+```sh
+git clone [PROJECT_REPO_LINK]
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```sh
+cd [PROJECT_REPO_NAME]
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## :runner: Running
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```sh
+docker-compose up
+```
 
-### `yarn eject`
+> Access http://localhost:8000
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## :white_check_mark: Tests
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+After up the container:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```sh
+docker-compose exec -t [CONTAINER_SERVICE_NAME] ./vendor/bin/phpunit
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Contributing
 
-## Learn More
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Please make sure to update tests as appropriate.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+## About Me
+
+<p align="center">
+    <a style="font-weight: bold" href="https://www.linkedin.com/in/filipe1309/">
+    <img style="border-radius:50%" width="100px; "src="https://avatars.githubusercontent.com/u/2081014?s=60&v=4"/>
+    </a>
+</p>
+
+---
+
+<p align="center">
+    Done with ♥ by <a style="font-weight: bold" href="https://www.linkedin.com/in/filipe1309/">Filipe Leuch Bonfim</a> 🖖
+</p>
