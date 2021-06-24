@@ -2,7 +2,6 @@
 
 <p align="center">
     <img src="https://img.shields.io/badge/Code-React-informational?style=flat-square&logo=react&color=61DAFB" alt="React" />
-    <img src="https://img.shields.io/badge/Tools-Docker-informational?style=flat-square&logo=docker&color=2496ED" alt="Docker" />
 </p>
 
 ## 💬 About
@@ -12,45 +11,29 @@ This project was developed following NLW's Together [React.js](https://nextlevel
 ## :computer: Technologies
 
 - [React.js](https://reactjs.org/)
-- [Docker](https://www.docker.com/)
-- [Docker Compose](https://docs.docker.com/compose/)
 
 ## :scroll: Requirements
 
-- [Docker](https://www.docker.com/)
-- [Docker Compose](https://docs.docker.com/compose/)
+- [Node.js](https://nodejs.dev/)
+- [Yarn](https://yarnpkg.com/)
 
 ## :cd: Installation
 
 ```sh
-git clone [PROJECT_REPO_LINK]
+git clone git@github.com:filipe1309/rs-reactjs-letmeask.git
 ```
 
 ```sh
-cd [PROJECT_REPO_NAME]
+cd rs-reactjs-letmeask
 ```
 
 ## :runner: Running
 
 ```sh
-docker-compose up
+yarn start
 ```
 
-> Access http://localhost:8000
-
-## :white_check_mark: Tests
-
-After up the container:
-
-```sh
-docker-compose exec -t [CONTAINER_SERVICE_NAME] ./vendor/bin/phpunit
-```
-
-## Contributing
-
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
+> Access http://localhost:3000
 
 ## License
 
