@@ -1,6 +1,13 @@
+import { Button } from "./components/Button";
+
 function App() {
   return (
-    <h1>Hello World</h1>
+    <div>
+      <Button text="Attribute by props"/>
+      <Button>Children by props</Button>
+      <Button />
+      <Button />
+    </div>
   );
 }
 
