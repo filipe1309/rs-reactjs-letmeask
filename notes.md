@@ -7,7 +7,11 @@
 
 ## CLASS-1
 
+Component | Property | State
+
 ```sh
 yarn create react-app letmeask --template typescript
 yarn start
+
+yarn add firebase
 ```
