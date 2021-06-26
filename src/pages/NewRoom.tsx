@@ -1,0 +1,31 @@
+import '../styles/auth.scss';
+import { Button } from '../components/Button';
+import logoImg from '../assets/images/logo.svg';
+import googleIconImg from '../assets/images/google-icon.svg';
+import illustrationImg from '../assets/images/illustration.svg';
+
+export function NewRoom() {
+    return (
+        <div id="page-auth">
+            <aside>
+                <img src={illustrationImg} alt="Ilustration of questions &amp; answers" />
+                <strong>Create a Q&amp;A room on-live</strong>
+                <p>Answer you audience in real-time</p>
+            </aside>
+            <main>
+                <div className="main-content">
+                    <img src={logoImg} alt="Letmeask" />
+                    <h2>Create a new room</h2>
+                    <form action="">
+                        <input 
+                            type="text"
+                            placeholder="Room's name"
+                        />
+                        <Button type="submit">Create room</Button>
+                    </form>
+                    <p>Do you want to join an existing room? <a href="#">click here</a></p>
+                </div>
+            </main>
+        </div>
+    )
+}
