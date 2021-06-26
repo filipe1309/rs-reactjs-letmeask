@@ -1,8 +1,8 @@
 import '../styles/auth.scss';
 import { Button } from '../components/Button';
 import logoImg from '../assets/images/logo.svg';
-import googleIconImg from '../assets/images/google-icon.svg';
 import illustrationImg from '../assets/images/illustration.svg';
+import { Link } from 'react-router-dom';
 
 export function NewRoom() {
     return (
@@ -23,7 +23,7 @@ export function NewRoom() {
                         />
                         <Button type="submit">Create room</Button>
                     </form>
-                    <p>Do you want to join an existing room? <a href="#">click here</a></p>
+                    <p>Do you want to join an existing room? <Link to="/">click here</Link></p>
                 </div>
             </main>
         </div>
