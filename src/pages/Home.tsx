@@ -1,6 +1,6 @@
 import '../styles/auth.scss';
 import { useContext } from 'react';
-import { AuthContext } from '../App';
+import { AuthContext } from '../contexts/AuthContext';
 import { useHistory } from 'react-router';
 import { Button } from '../components/Button';
 import logoImg from '../assets/images/logo.svg';
