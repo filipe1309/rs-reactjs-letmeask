@@ -21,7 +21,7 @@ function App() {
   const [ user, setUser ] = useState<UserType>();
 
   useEffect(() => {
-    auth.onAuthStateChanged(user => {
+    const unsubscribe = auth.onAuthStateChanged(user => {
       if (user) {
         const { displayName, photoURL, uid } = user;
 
@@ -35,7 +35,11 @@ function App() {
           avatar: photoURL
         });
       }
-    })
+    });
+
+    return () => {
+      unsubscribe();
+    }
   }, [])
 
   async function signInWithGoogle() {
