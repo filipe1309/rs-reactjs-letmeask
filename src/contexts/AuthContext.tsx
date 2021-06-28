@@ -1,5 +1,6 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { firebase, auth } from "../services/firebase";
+import { createContext, ReactNode, useEffect, useState } from "react";
 
 type UserType = {
     id: string;
@@ -10,6 +11,7 @@ type UserType = {
 type AuthContextType = {
     user: UserType | undefined;
     signInWithGoogle: () => Promise<void>;
+    signOutFromGoogle: () => void;
 };
 
 type AuthContextProviderProps = {
@@ -20,6 +22,7 @@ export const AuthContext = createContext({} as AuthContextType);
 
 export function AuthContextProvider(props: AuthContextProviderProps) {
     const [ user, setUser ] = useState<UserType>();
+    const history = useHistory();
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
@@ -63,12 +66,14 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
     }
   }
 
-  // async function signOutGoogle() {
-  //   await auth.signOut();
-  // }
+  async function signOutFromGoogle() {
+    await auth.signOut();
+    setUser(undefined);
+    history.push('/');
+  }
 
     return (
-        <AuthContext.Provider value={{ user, signInWithGoogle }}>
+        <AuthContext.Provider value={{ user, signInWithGoogle, signOutFromGoogle }}>
             {props.children}
         </AuthContext.Provider>
 
