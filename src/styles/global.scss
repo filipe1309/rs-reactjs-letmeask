@@ -15,3 +15,25 @@ button,
 textarea {
     font: 400 16px 'Roboto', sans-serif;
 }
+
+.dark {
+    background: #333;
+    color: #fff;
+    .main-content>img {
+        background: #fff;
+        padding: 10px;
+        margin: -10px;
+        border-radius: 28%;
+    }
+}
+
+.theme {
+    margin: 25px;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    padding: 20px;
+    background: -webkit-linear-gradient(#ccc 50%, #333 50%);
+    width: 89px;
+    position: absolute;
+}

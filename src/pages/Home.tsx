@@ -13,7 +13,7 @@ export function Home() {
     const history = useHistory();
     const { user, signInWithGoogle} = useAUth();
     const [ roomCode, setRoomCode ] = useState('');
-    const {theme, toggleTheme } = useTheme();
+    const { theme, toggleTheme } = useTheme();
 
     async function handleCreateRoom() {
         if (!user) {
@@ -42,6 +42,7 @@ export function Home() {
 
     return (
         <div id="page-auth" className={theme}>
+            <button className="theme" onClick={toggleTheme}>Toggle Theme</button>
             <aside>
                 <img src={illustrationImg} alt="Ilustration of questions &amp; answers" />
                 <strong>Create a Q&amp;A room on-live</strong>
@@ -49,7 +50,6 @@ export function Home() {
             </aside>
             <main>
                 <div className="main-content">
-                    <button onClick={toggleTheme}>Toggle Theme</button>
                     <img src={logoImg} alt="Letmeask" />
                     <button onClick={handleCreateRoom} className="create-room">
                         <img src={googleIconImg} alt="Google's logo" />

@@ -6,9 +6,11 @@ import logoImg from '../assets/images/logo.svg';
 import illustrationImg from '../assets/images/illustration.svg';
 import { FormEvent, useState } from 'react';
 import { database } from '../services/firebase';
+import { useTheme } from '../hooks/useTheme';
 
 export function NewRoom() {
     const { user } = useAUth();
+    const { theme } = useTheme();
     const history = useHistory();
     const [ newRoom, setNewRoom ] = useState('');
 
@@ -30,7 +32,7 @@ export function NewRoom() {
     }
 
     return (
-        <div id="page-auth">
+        <div id="page-auth" className={theme}>
             <aside>
                 <img src={illustrationImg} alt="Ilustration of questions &amp; answers" />
                 <strong>Create a Q&amp;A room on-live</strong>

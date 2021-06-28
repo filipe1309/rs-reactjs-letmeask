@@ -89,7 +89,7 @@ export function Room() {
     }
 
     return (
-        <div id="page-room">
+        <div id="page-room" className="dark">
             <header>
                 <div className="content">
                     <img src={logoImg} alt="Letmeask" />
