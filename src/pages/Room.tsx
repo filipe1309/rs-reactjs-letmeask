@@ -1,11 +1,11 @@
 import '../styles/room.scss';
 import { useAUth } from '../hooks/useAuth';
-import { useParams } from 'react-router-dom';
 import { Button } from '../components/Button';
 import logoImg from '../assets/images/logo.svg';
 import { database } from '../services/firebase';
 import { RoomCode } from '../components/RoomCode';
 import { FormEvent, useEffect, useState } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
 
 type RoomParams = {
     id: string;
@@ -39,6 +39,13 @@ export function Room() {
     const [ newQuestion, setNewQuestion ] = useState('');
     const [ questions, setQuestions ] = useState<Question[]>([]);
     const [ title, setTitle ] = useState('');
+    const history = useHistory();
+
+    useEffect(() => {
+        if (!user) {
+            history.push('/');
+        }
+    }, [ user, history ])
 
     useEffect(() => {
         const roomRef = database.ref(`rooms/${roomId}`);
