@@ -44,7 +44,7 @@ yarn start
 ## 📃 TODO
 
 - [ ] Improve notifications (https://www.npmjs.com/package/react-helmet)
-- [ ] Delete question qith modal (https://github.com/reactjs/react-modal)
+- [ ] Delete question with modal (https://github.com/reactjs/react-modal)
 
 ## License
 
