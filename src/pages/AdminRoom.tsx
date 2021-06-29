@@ -3,7 +3,7 @@ import { Button } from '../components/Button';
 import logoImg from '../assets/images/logo.svg';
 import deleteImg from '../assets/images/delete.svg';
 import { RoomCode } from '../components/RoomCode';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { Question } from '../components/Question';
 import { useRoom } from '../hooks/useRoom';
 import { database } from '../services/firebase';
@@ -16,11 +16,20 @@ export function AdminRoom() {
     const params = useParams<RoomParams>();
     const roomId = params.id;
     const { questions, title } =  useRoom(roomId);
+    const history = useHistory();
 
     async function handleDeleteQuestion(questionId: string) {
         if (window.confirm('Are you sure you want to delete?')) {
             await database.ref(`rooms/${roomId}/questions/${questionId}`).remove();
         }
+    }
+
+    async function handleCloseRoom() {
+        await database.ref(`rooms/${roomId}`).update({
+            closedAt: new Date()
+        });
+
+        history.push('/');
     }
 
     return (
@@ -30,7 +39,7 @@ export function AdminRoom() {
                     <img src={logoImg} alt="Letmeask" />
                     <div>
                         <RoomCode code={roomId}/>
-                        <Button isOutlined>Finish Room</Button>
+                        <Button isOutlined onClick={handleCloseRoom}>Finish Room</Button>
                     </div>
                 </div> 
             </header>
