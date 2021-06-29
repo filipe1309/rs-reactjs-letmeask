@@ -6,12 +6,13 @@ import { database } from '../services/firebase';
 import { RoomCode } from '../components/RoomCode';
 import { FormEvent, useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
+import { Question } from '../components/Question';
 
 type RoomParams = {
     id: string;
 }
 
-type Question = {
+type QuestionType = {
     id: string;
     author: {
         name: string;
@@ -37,7 +38,7 @@ export function Room() {
     const params = useParams<RoomParams>();
     const roomId = params.id;
     const [ newQuestion, setNewQuestion ] = useState('');
-    const [ questions, setQuestions ] = useState<Question[]>([]);
+    const [ questions, setQuestions ] = useState<QuestionType[]>([]);
     const [ title, setTitle ] = useState('');
     const history = useHistory();
 
@@ -96,7 +97,7 @@ export function Room() {
     }
 
     return (
-        <div id="page-room" className="dark">
+        <div id="page-room">
             <header>
                 <div className="content">
                     <img src={logoImg} alt="Letmeask" />
@@ -127,7 +128,20 @@ export function Room() {
                         ) }
                         <Button type="submit" disabled={!user}>Send question</Button>
                     </div>
-                </form>                
+                </form>
+
+                <div className="question-list">
+                    {questions.map(question => {
+                        return (
+                            <Question
+                                key={question.id}
+                                content={question.content}
+                                author={question.author}
+                            />
+                        )
+                    })}
+                </div>
+
             </main>
         </div>
     );
