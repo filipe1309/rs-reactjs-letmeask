@@ -7,67 +7,26 @@ import { RoomCode } from '../components/RoomCode';
 import { FormEvent, useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { Question } from '../components/Question';
+import { useRoom } from '../hooks/useRoom';
 
 type RoomParams = {
     id: string;
 }
 
-type QuestionType = {
-    id: string;
-    author: {
-        name: string;
-        avatar: string;
-    };
-    content: string;
-    isHighlighted: boolean;
-    isAnswered: boolean;
-}
-
-type FirebaseQuestions = Record<string, {
-    author: {
-        name: string;
-        avatar: string;
-    };
-    content: string;
-    isHighlighted: boolean;
-    isAnswered: boolean;
-}>
 
 export function Room() {
     const { user } = useAUth();
     const params = useParams<RoomParams>();
     const roomId = params.id;
     const [ newQuestion, setNewQuestion ] = useState('');
-    const [ questions, setQuestions ] = useState<QuestionType[]>([]);
-    const [ title, setTitle ] = useState('');
     const history = useHistory();
+    const { questions, title } =  useRoom(roomId);
 
     useEffect(() => {
         if (!user) {
             history.push('/');
         }
-    }, [ user, history ])
-
-    useEffect(() => {
-        const roomRef = database.ref(`rooms/${roomId}`);
-        roomRef.on('value', room => {
-            const databaseRoom = room.val();
-            const firebaseQuestions: FirebaseQuestions = databaseRoom.questions ?? {};
-            const parsedQuestions = Object.entries(firebaseQuestions).map(([key, value]) => {
-                const { content, author, isHighlighted, isAnswered } = value;
-                return {
-                    id: key,
-                    content,
-                    author,
-                    isHighlighted,
-                    isAnswered
-                }
-            });
-
-            setTitle(databaseRoom.title);
-            setQuestions(parsedQuestions);
-        })
-    }, [roomId])
+    }, [ user, history ]);
 
     async function handleSendQuestion(event: FormEvent) {
         event.preventDefault();
