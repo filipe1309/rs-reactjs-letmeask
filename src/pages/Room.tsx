@@ -23,6 +23,16 @@ export function Room() {
     const { questions, title } =  useRoom(roomId);
 
     useEffect(() => {
+        const roomRef = database.ref(`rooms/${roomId}`);
+
+        roomRef.get().then(room => {
+            if (room.val().closedAt) {
+                history.push('/');
+            }
+        })
+    }, [history, roomId]);
+
+    useEffect(() => {
         if (!user) {
             history.push('/');
         }
