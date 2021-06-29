@@ -62,6 +62,21 @@ Firebase rules
 }
 ```
 
+Toast instead alert
 https://react-hot-toast.com/
 
 https://firebase.google.com/docs/database/admin/retrieve-data#child-added
+
+## CLASS-4
+
+Dynamic title
+https://www.npmjs.com/package/react-helmet
+
+Firebase Open source alternative
+https://supabase.io/
+
+http://localhost:3000/rooms/-MdEj9h6DkswZ3AP8D_J
+
+http://localhost:3000/admin/rooms/-MdEj9h6DkswZ3AP8D_J
+
+https://github.com/reactjs/react-modal
