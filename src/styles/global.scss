@@ -37,3 +37,13 @@ textarea {
     width: 89px;
     position: absolute;
 }
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    gap: 16px;
+}
