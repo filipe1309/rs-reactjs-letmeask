@@ -1,19 +1,27 @@
 import '../styles/auth.scss';
 import { useHistory } from 'react-router';
 import { useAUth } from '../hooks/useAuth';
-import { FormEvent, useState } from 'react';
 import { useTheme } from '../hooks/useTheme';
 import { Button } from '../components/Button';
 import { database } from '../services/firebase';
 import logoImg from '../assets/images/logo.svg';
 import googleIconImg from '../assets/images/google-icon.svg';
 import illustrationImg from '../assets/images/illustration.svg';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as Yup from 'yup';
+
+const schema = Yup.object().shape({
+    roomCode: Yup.string().min(3, 'Min of 3 chars').required('Room code required')
+})
 
 export function Home() {
     const history = useHistory();
     const { user, signInWithGoogle} = useAUth();
-    const [ roomCode, setRoomCode ] = useState('');
     const { theme, toggleTheme } = useTheme();
+    const { register, handleSubmit } = useForm({
+        resolver: yupResolver(schema),
+    });
 
     async function handleCreateRoom() {
         if (!user) {
@@ -23,12 +31,8 @@ export function Home() {
         history.push('/rooms/new');
     }
 
-    async function handleJoinRoom(event: FormEvent) {
-        event.preventDefault();
-
-        if (roomCode === '') {
-            return;
-        }
+    async function handleJoinRoom(data: any) {
+        const { roomCode } = data;
 
         const roomRef = await database.ref(`rooms/${roomCode}`).get();
 
@@ -61,12 +65,11 @@ export function Home() {
                         Create your room with Google
                     </button>
                     <div className="separator">Or enter in a room</div>
-                    <form onSubmit={handleJoinRoom}>
+                    <form onSubmit={handleSubmit(handleJoinRoom)}>
                         <input 
                             type="text"
                             placeholder="Type room's code"
-                            onChange={event => setRoomCode(event.target.value)}
-                            value={roomCode}
+                            {...register('roomCode')}
                         />
                         <Button type="submit">Enter room</Button>
                     </form>

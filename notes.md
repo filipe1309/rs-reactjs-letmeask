@@ -47,13 +47,13 @@ Firebase rules
       ".write": "auth != null",
       "$roomId": {
         ".read": true,
-        ".write": "auth != null && (!data.exists() || data.child('authorId').val() == auth.id)",
+        ".write": "auth != null && (!data.exists() || data.child('authorId').val() == auth.uid)",
         "questions": {
           ".read": true,
-          ".write": "auth != null && (!data.exists() || data.parent().child('authorId').val() == auth.id)",
+          ".write": "auth != null && (!data.exists() || data.parent().child('authorId').val() == auth.uid)",
           "likes": {
             ".read": true,
-            ".write": "auth != null && (!data.exists() || data.child('authorId').val() == auth.id)"
+            ".write": "auth != null && (!data.exists() || data.child('authorId').val() == auth.uid)"
           }
         }
       }
@@ -80,3 +80,18 @@ http://localhost:3000/rooms/-MdEj9h6DkswZ3AP8D_J
 http://localhost:3000/admin/rooms/-MdEj9h6DkswZ3AP8D_J
 
 https://github.com/reactjs/react-modal
+
+## CLASS-5
+
+```sh
+yarn add react-modal
+yarn add @types/react-modal -D
+```
+
+https://react-hook-form.com/
+
+```sh
+yarn add react-hook-form
+yarn add @hookform/resolvers -D
+yarn add yup
+```
