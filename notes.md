@@ -95,3 +95,22 @@ yarn add react-hook-form
 yarn add @hookform/resolvers -D
 yarn add yup
 ```
+
+https://www.npmjs.com/package/classnames
+
+```sh
+yarn add classnames
+```
+
+Host in firebase
+https://create-react-app.dev/docs/deployment/#firebase
+
+```sh
+npm install -g firebase-tools # OR yarn global add firebase-tools
+firebase login
+firebase init
+
+yarn build
+
+firebase deploy
+```
