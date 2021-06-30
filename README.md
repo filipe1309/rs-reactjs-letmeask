@@ -44,7 +44,11 @@ yarn start
 ## 📃 TODO
 
 - [ ] Improve notifications (https://www.npmjs.com/package/react-helmet)
-- [ ] Delete question with modal (https://github.com/reactjs/react-modal)
+- [x] Delete question with modal (https://github.com/reactjs/react-modal)
+- [ ] PWA Version
+- [ ] Other DB (firestore, supabase)
+- [ ] Styled Componenents (Saas to react)
+- [ ] ESLint + Prettier
 
 ## License
 
